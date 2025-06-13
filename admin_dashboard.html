@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Euthini Secondary School</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="navbar container">
+      <h1 class="logo">Admin Panel</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container">
+    <h2>Welcome, Admin</h2>
+
+    <div class="admin-section">
+      <h3>📬 Contact Messages</h3>
+      <ul id="message-list"></ul>
+    </div>
+
+    <div class="admin-section">
+      <h3>💬 All Comments</h3>
+      <ul id="comment-list"></ul>
+    </div>
+
+    <div class="admin-section">
+      <h3>❤️ Most Liked Posts</h3>
+      <ul id="likes-list"></ul>
+    </div>
+  </section>
+
+  <script>
+    const token = localStorage.getItem("adminToken");
+    if (!token) {
+      window.location.href = "admin-login.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("adminToken");
+      window.location.href = "admin-login.html";
+    }
+
+    async function fetchAdminData() {
+      const headers = { Authorization: `Bearer ${token}` };
+
+      // Fetch messages
+      const msgRes = await fetch("/api/messages", { headers });
+      const messages = await msgRes.json();
+      const msgList = document.getElementById("message-list");
+      messages.forEach(msg => {
+        const li = document.createElement("li");
+        li.innerText = `${msg.name} (${msg.email}): ${msg.message}`;
+        msgList.appendChild(li);
+      });
+
+      // Fetch comments
+      const comRes = await fetch("/api/comments", { headers });
+      const comments = await comRes.json();
+      const comList = document.getElementById("comment-list");
+      comments.forEach(c => {
+        const li = document.createElement("li");
+        li.innerText = `${c.postId}: ${c.text}`;
+        comList.appendChild(li);
+      });
+
+      // Fetch likes
+      const likeRes = await fetch("/api/likes", { headers });
+      const likes = await likeRes.json();
+      const likeList = document.getElementById("likes-list");
+      likes.forEach(like => {
+        const li = document.createElement("li");
+        li.innerText = `${like.postId}: ${like.count} likes`;
+        likeList.appendChild(li);
+      });
+    }
+
+    fetchAdminData();
+  </script>
+</body>
+</html>

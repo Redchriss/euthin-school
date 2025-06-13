@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Euthini Secondary School</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="navbar container">
+      <h1 class="logo">Euthini Secondary School</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Reach out to us with your questions or feedback.</p>
+    </div>
+  </section>
+
+  <section class="container contact-section">
+    <div class="contact-details">
+      <h3>School Information</h3>
+      <p><strong>Address:</strong> Euthini, Mzimba District, Northern Region, Malawi</p>
+      <p><strong>Phone:</strong> +265 123 456 789</p>
+      <p><strong>Email:</strong> info@euthiniss.mw</p>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send a Message</h3>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+        <p id="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container container">
+      <p>&copy; 2025 Euthini Secondary School. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="contact.js"></script>
+</body>
+</html>

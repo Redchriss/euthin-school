@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News - Euthini Secondary School</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="navbar container">
+      <h1 class="logo">Euthini Secondary School</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="news.html" class="active">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h2>School News</h2>
+      <p>Get the latest updates and events happening at Euthini Secondary School.</p>
+    </div>
+  </section>
+
+  <section class="container news-section">
+
+    <!-- News Post -->
+    <div class="news-post" id="post-1">
+      <h3>Form 4 Students Begin Final Exams</h3>
+      <p>The final exams have started for all Form 4 students. We wish them the best of luck!</p>
+
+      <div class="interactions">
+        <button class="like-btn" onclick="likePost('post-1')">👍 Like (<span id="likes-post-1">0</span>)</button>
+      </div>
+
+      <div class="comments">
+        <h4>Comments</h4>
+        <ul id="comments-post-1" class="comment-list"></ul>
+        <input type="text" id="comment-input-post-1" placeholder="Write a comment..." />
+        <button onclick="addComment('post-1')">Post Comment</button>
+      </div>
+    </div>
+
+    <!-- Add more news posts below similarly -->
+    
+  </section>
+
+  <footer>
+    <div class="footer-container container">
+      <p>&copy; 2025 Euthini Secondary School. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/news.js"></script>
+</body>
+</html>
